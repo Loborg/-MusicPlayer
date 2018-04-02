@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/album_cover"
+        android:layout_width="@dimen/album_activity_track_list_image_size"
+        android:layout_height="@dimen/album_activity_track_list_image_size"
+        android:layout_margin="@dimen/base_padding_margine"
+        android:layout_marginBottom="@dimen/base_padding_margine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/naphoz_holddal" />
+
+    <TextView
+        android:id="@+id/track_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/base_padding_margine"
+        android:layout_marginStart="@dimen/base_padding_margine"
+        android:layout_marginTop="@dimen/base_padding_margine"
+        android:gravity="start"
+        android:paddingBottom="@dimen/base_padding_margine"
+        android:paddingEnd="@dimen/base_padding_margine"
+        android:paddingStart="@dimen/base_padding_margine"
+        android:textColor="@color/common_text_color"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/album_cover"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/sample_track_title" />
+
+    <TextView
+        android:id="@+id/track_artist"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="@dimen/base_padding_margine"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="@dimen/base_padding_margine"
+        android:gravity="start"
+        android:textColor="@color/common_text_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/album_cover"
+        app:layout_constraintTop_toBottomOf="@+id/track_title"
+        tools:text="@string/sample_track_performer" />
+</android.support.constraint.ConstraintLayout>

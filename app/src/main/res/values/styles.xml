@@ -1,11 +1,53 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="title_bar_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/title_bar_text_size</item>
+        <item name="android:padding">@dimen/base_padding_margine</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColor">@color/title_bar_text_color</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="home_title_perf_text_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">@dimen/home_text_margins</item>
+        <item name="android:layout_marginStart">@dimen/home_text_margins</item>
+        <item name="android:textSize">@dimen/home_track_title_size</item>
+        <item name="android:gravity">end</item>
+        <item name="android:textColor">@color/title_bar_text_color</item>
+    </style>
+
+    <style name="track_album_cover_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_marginRight">@dimen/base_padding_margine</item>
+        <item name="android:layout_marginLeft">@dimen/base_padding_margine</item>
+        <item name="android:layout_height">@dimen/track_album_cover_size</item>
+        <item name="android:layout_marginTop">@dimen/base_padding_margine</item>
+    </style>
+
+    <style name="track_controller_play_pause_style">
+        <item name="android:layout_width">@dimen/track_controller_play_pause_size</item>
+        <item name="android:layout_height">@dimen/track_controller_play_pause_size</item>
+        <item name="android:layout_marginBottom">@dimen/base_padding_margine</item>
+    </style>
+
+    <style name="track_controller_back_next_style">
+        <item name="android:layout_width">@dimen/track_controller_back_next_size</item>
+        <item name="android:layout_height">@dimen/track_controller_back_next_size</item>
+        <item name="android:layout_marginBottom">@dimen/base_padding_margine</item>
     </style>
 
 </resources>

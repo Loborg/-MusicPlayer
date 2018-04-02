@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ListView
+        android:id="@+id/primary_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/base_padding_margine"
+        app:layout_constraintBottom_toTopOf="@id/button_guidline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_guidline" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/top_guidline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/guidline_constraint" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/middle_guidline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/button_guidline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="@dimen/guidline_constraint" />
+
+    <TextView
+        android:id="@+id/title_text_bar"
+        style="@style/title_bar_style"
+        app:layout_constraintBottom_toTopOf="@+id/top_guidline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/home_titles_text" />
+
+    <View
+        android:id="@+id/background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/button_guidline" />
+
+    <TextView
+        android:id="@+id/home_track_title"
+        style="@style/home_title_perf_text_style"
+        tools:text="@string/sample_track_title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/middle_guidline"
+        app:layout_constraintStart_toEndOf="@+id/home_arrow_upp"
+        app:layout_constraintTop_toTopOf="@+id/button_guidline" />
+
+    <TextView
+        android:id="@+id/home_album_title"
+        style="@style/home_title_perf_text_style"
+        android:gravity="start"
+        tools:text="@string/sample_track_performer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/home_play"
+        app:layout_constraintStart_toStartOf="@+id/middle_guidline"
+        app:layout_constraintTop_toTopOf="@+id/button_guidline" />
+
+    <ImageView
+        android:id="@+id/home_arrow_upp"
+        android:layout_width="@dimen/home_image_width_height"
+        android:layout_height="@dimen/home_image_width_height"
+        android:layout_marginStart="@dimen/home_image_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button_guidline"
+        app:srcCompat="@drawable/ic_keyboard_arrow_up_white_36px" />
+
+    <ImageView
+        android:id="@+id/home_play"
+        android:layout_width="@dimen/home_image_width_height"
+        android:layout_height="@dimen/home_image_width_height"
+        android:layout_marginEnd="@dimen/home_image_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button_guidline"
+        app:srcCompat="@drawable/ic_play_circle_outline_white_36px"
+        android:visibility="visible"/>
+
+    <ImageView
+        android:id="@+id/home_pause"
+        android:layout_width="@dimen/home_image_width_height"
+        android:layout_height="@dimen/home_image_width_height"
+        android:layout_marginEnd="@dimen/home_image_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button_guidline"
+        app:srcCompat="@drawable/ic_pause_circle_outline_white_36px"
+        android:visibility="gone"/>
+
+</android.support.constraint.ConstraintLayout>

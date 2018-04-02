@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/album_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/common_text_color"
+        android:padding="@dimen/title_bar_text_size"
+        android:textStyle="bold"
+        android:textSize="@dimen/title_bar_text_size"
+        tools:text="Naphoz Holddal" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/secondary_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

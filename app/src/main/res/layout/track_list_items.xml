@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/album_cover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/base_padding_margine"
+        tools:srcCompat="@drawable/naphoz_holddal" />
+
+    <TextView
+        android:id="@+id/track_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingEnd="@dimen/base_padding_margine"
+        android:paddingStart="@dimen/base_padding_margine"
+        android:paddingBottom="@dimen/base_padding_margine"
+        android:textColor="@color/common_text_color"
+        android:textStyle="bold"
+        tools:text="@string/sample_track_title"/>
+
+    <TextView
+        android:id="@+id/track_artist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/common_text_color"
+        tools:text="@string/sample_track_performer" />
+
+    <TextView
+        android:id="@+id/album_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/common_text_color"
+        tools:text="@string/sample_album_title"
+        tools:visibility="visible"
+        android:visibility="gone"/>
+</LinearLayout>

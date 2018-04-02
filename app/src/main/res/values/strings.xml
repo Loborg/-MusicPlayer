@@ -1,3 +1,96 @@
 <resources>
     <string name="app_name">MusicPlayer</string>
+    <string name="home_titles_text">home</string>
+    <string name="album_titles_text">album</string>
+    <string name="track_titles_text">track</string>
+
+    <string name="sample_track_title">A Vadnyugat Története Indián Szemmel</string>
+    <string name="sample_track_performer">Kispál és a Borz</string>
+    <string name="sample_album_title">Föld kaland ilyesmi…</string>
+
+    <string name="no_track_selected_toast">You haven’t selected any tracks to play jet!</string>
+
+    <string name="performer">Kispál és a Borz</string>
+    
+    <string name="album_1">Naphoz Holdal</string>
+        <string name="trackA_1">Lefekszem A Hóba</string>
+        <string name="trackA_2">A \'60-as Évek</string>
+        <string name="trackA_3">Húsrágó Hídverő</string>
+        <string name="trackA_4">Tejjel Kifli</string>
+        <string name="trackA_5">Macska</string>
+        <string name="trackA_6">Kicsi Csillag</string>
+        <string name="trackA_7">Barlangban Dobolok</string>
+        <string name="trackA_8">Őrjárat</string>
+        <string name="trackA_9">Forradalmár</string>
+        <string name="trackA_10">A Vadnyugat Története Indián Szemmel</string>
+        <string name="trackA_11">Holdutazás</string>
+        <string name="trackA_12">Szőkített Nő</string>
+        <string name="trackA_13">Naphoz Holddal</string>
+
+    <string name="album_2">Föld kaland ilyesmi…</string>
+        <string name="trackB_1">Autók A Tenger Felé</string>
+        <string name="trackB_2">Halszív</string>
+        <string name="trackB_3">Tökéletes Helyettes</string>
+        <string name="trackB_4">A Következő Buszon</string>
+        <string name="trackB_5">Bujtogató</string>
+        <string name="trackB_6">Huszárnóta</string>
+        <string name="trackB_7">Jönni Fog Egy Lovas</string>
+        <string name="trackB_8">UFO</string>
+        <string name="trackB_9">Földtörténet</string>
+        <string name="trackB_10">Kényszer, Érdek, Ösztönélet</string>
+        <string name="trackB_11">\.\.\.Ilyesmi</string>
+        <string name="trackB_12">A Rétek Halványak</string>
+        <string name="trackB_13">Nagyapa Kileste Nagyvilág</string>
+
+    <string name="album_3">Ágy asztal tévé</string>
+        <string name="trackC_1">Neked Nem</string>
+        <string name="trackC_2">Levesek Porból</string>
+        <string name="trackC_3">Zsákmányállat</string>
+        <string name="trackC_4">Jövőből Jövő Lövő</string>
+        <string name="trackC_5">Előre, Illéri</string>
+        <string name="trackC_6">Rezervátom</string>
+        <string name="trackC_7">Dal Poharakról</string>
+        <string name="trackC_8">Jó A Világ Végéig</string>
+        <string name="trackC_9">Tingli-Tangli</string>
+        <string name="trackC_10">Fűben Alvó</string>
+        <string name="trackC_11">Bársonyfüggöny</string>
+        <string name="trackC_12">Szeretek, Szeretek</string>
+        <string name="trackC_13">Ágy, Asztal, TV</string>
+        <string name="trackC_14">Rajtakaptál</string>
+
+    <string name="album_4">Sika, kasza, léc</string>
+        <string name="trackD_1">Volume</string>
+        <string name="trackD_2">Sültkrumpli</string>
+        <string name="trackD_3">A Pécsi Szál</string>
+        <string name="trackD_4">Német Mérnökének</string>
+        <string name="trackD_5">Sika, Kasza</string>
+        <string name="trackD_6">És Hogyha Máshová Kerül\.\.\.</string>
+        <string name="trackD_7">Jutka</string>
+        <string name="trackD_8">Egy Az Egybe (Csak Maga)</string>
+        <string name="trackD_9">Éjjeli Lámpa</string>
+        <string name="trackD_10">Szécsi Pál</string>
+        <string name="trackD_11">Kicsit Feldob\.\.\.</string>
+        <string name="trackD_12">Napos Oldal</string>
+        <string name="trackD_13">A Honi Csillagászat Fejlődése</string>
+        <string name="trackD_14">Helló</string>
+
+    <string name="album_5">Ül</string>
+        <string name="trackE_1">Ül</string>
+        <string name="trackE_2">Űrrock</string>
+        <string name="trackE_3">Olajos Vasak Égben Edzett Kövek</string>
+        <string name="trackE_4">Gyónás</string>
+        <string name="trackE_5">Meghatás</string>
+        <string name="trackE_6">Presszó Rock</string>
+        <string name="trackE_7">Szociodisco</string>
+        <string name="trackE_8">Harmatoslábú</string>
+        <string name="trackE_9">Adok Egy Kulcsot</string>
+        <string name="trackE_10">A Vadász És A Nyuszik</string>
+        <string name="trackE_11">Dal Teázáshoz</string>
+        <string name="trackE_12">Modellezés Almával</string>
+        <string name="trackE_13">Apa Anya És A Kígyó</string>
+        <string name="trackE_14">Lekvár</string>
+        <string name="trackE_15">Tegyetek El Befőttet</string>
+        <string name="trackE_16">Dal Elalváshoz</string>
+        <string name="trackE_17">Jelvény Nélkül</string>
+
 </resources>
