@@ -32,6 +32,7 @@ public class TracksRecyclerAdapter extends RecyclerView.Adapter<TrackHolder> {
     @Override
     public void onBindViewHolder(TrackHolder holder, int position) {
         int albumCoverIdentifier = mItemList.get(position).getAlbumCover();
+        holder.tracPosition = holder.getAdapterPosition();
 
         ImageView albumCover = holder.mAlbumCover;
         albumCover.setImageResource(albumCoverIdentifier);

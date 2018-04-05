@@ -13,20 +13,17 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.android.musicplayer.activitys.AlbumActivity;
+import com.example.android.musicplayer.activitys.HomeActivity;
 import com.example.android.musicplayer.models.Album;
 import com.example.android.musicplayer.R;
-import com.example.android.musicplayer.models.Track;
 
 import java.util.ArrayList;
 
-/**
- * Created by Loborg on 2018. 03. 24..
- */
-
 public class AlbumsArrayAdapter extends ArrayAdapter<Album> {
+
+
 
     public AlbumsArrayAdapter(Context context, ArrayList<Album> albums){
         super (context, 0, albums);
@@ -35,6 +32,7 @@ public class AlbumsArrayAdapter extends ArrayAdapter<Album> {
     @NonNull
     @Override
     public View getView(final int position, @Nullable final View convertView, @NonNull ViewGroup parent) {
+        HomeActivity.mAlbumPosition = position;
         View listItemView = convertView;
         if (listItemView == null){
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.album_list_items, parent, false);
@@ -48,6 +46,7 @@ public class AlbumsArrayAdapter extends ArrayAdapter<Album> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), AlbumActivity.class);
+                intent.putExtra(AlbumActivity.CURRENT_ALBUM, position);
                 getContext().startActivity(intent);
             }
         });

@@ -13,11 +13,8 @@ import android.widget.TextView;
 import com.example.android.musicplayer.R;
 import com.example.android.musicplayer.models.Track;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-
-/**
- * Created by Loborg on 2018. 03. 28..
- */
 
 public class TracksArrayAdapter extends ArrayAdapter<Track> {
 

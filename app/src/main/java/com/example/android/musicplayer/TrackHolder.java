@@ -17,6 +17,7 @@ public class TrackHolder extends RecyclerView.ViewHolder {
     public TextView mTrackTitle;
     public TextView mTrackArtist;
     public TextView mAlbumTitle;
+    public int tracPosition;
 
     public TrackHolder(final View itemView){
         super(itemView);
@@ -26,8 +27,7 @@ public class TrackHolder extends RecyclerView.ViewHolder {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HomeActivity.setTextToCommonAlbumAndTrackTitle(mTrackTitle.getText().toString(), mAlbumTitle.getText().toString());
-                HomeActivity.getResourceForTrackActivity(mAlbumCoverIdentifier, mTrackTitle.getText().toString(), mTrackArtist.getText().toString());
+                HomeActivity.getResourceFromTrackHolder(mAlbumCoverIdentifier, mTrackTitle.getText().toString(), mTrackArtist.getText().toString(), mAlbumTitle.getText().toString(), tracPosition);
             }
         });
 
@@ -35,5 +35,6 @@ public class TrackHolder extends RecyclerView.ViewHolder {
         mTrackTitle = itemView.findViewById(R.id.track_title);
         mTrackArtist = itemView.findViewById(R.id.track_artist);
         mAlbumTitle = itemView.findViewById(R.id.album_title);
+        tracPosition = 0;
     }
 }

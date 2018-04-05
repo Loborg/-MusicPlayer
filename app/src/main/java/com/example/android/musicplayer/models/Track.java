@@ -4,6 +4,8 @@ import android.content.Context;
 
 import com.example.android.musicplayer.R;
 
+import java.io.Serializable;
+
 public class Track {
 
     private static final String DRAWABLE_TYPE = "drawable";
@@ -31,7 +33,6 @@ public class Track {
         return mAlbumArtist;
     }
 
-    /**Returns the title of the track, using the string resource name*/
     public int getTrackTitle(){
         return mTrackTitleIdentifier;
     }

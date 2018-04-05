@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/common_beckground_color">
 
     <android.support.constraint.Guideline
@@ -25,16 +25,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="@dimen/guidline_constraint" />
+        app:layout_constraintGuide_percent="0.85271317" />
 
     <TextView
         android:id="@+id/title_text_bar"
         style="@style/title_bar_style"
         app:layout_constraintBottom_toTopOf="@+id/top_guidline"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/album_button"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/track_titles_text" />
+
+    <TextView
+        android:id="@+id/album_button"
+        style="@style/title_bar_style"
+        app:layout_constraintBottom_toTopOf="@+id/top_guidline"
+        app:layout_constraintEnd_toStartOf="@+id/middle_guidline"
+        app:layout_constraintStart_toEndOf="@+id/home_button"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="album" />
+
+    <TextView
+        android:id="@+id/home_button"
+        style="@style/title_bar_style"
+        android:layout_width="90dp"
+        app:layout_constraintBottom_toTopOf="@+id/top_guidline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="home" />
 
     <ImageView
         android:id="@+id/track_album_cover"
@@ -82,37 +100,37 @@
         app:layout_constraintBottom_toTopOf="@+id/button_guidline"
         app:layout_constraintEnd_toStartOf="@+id/middle_guidline"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
         app:srcCompat="@drawable/ic_play_circle_outline_black_48px" />
 
     <ImageView
         android:id="@+id/track_pause"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_pause_circle_outline_black_48px"
         style="@style/track_controller_play_pause_style"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/button_guidline"
+        app:layout_constraintEnd_toStartOf="@+id/middle_guidline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        app:srcCompat="@drawable/ic_pause_circle_outline_black_48px" />
 
     <ImageView
         android:id="@+id/track_next"
         style="@style/track_controller_back_next_style"
-        android:layout_marginStart="@dimen/base_padding_margine"
         app:layout_constraintBottom_toTopOf="@+id/button_guidline"
         app:layout_constraintEnd_toStartOf="@+id/middle_guidline"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/track_play"
-        app:layout_constraintTop_toTopOf="@+id/track_play"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
         app:srcCompat="@drawable/ic_skip_next_black_48px" />
 
     <ImageView
         android:id="@+id/track_back"
         style="@style/track_controller_back_next_style"
-        android:layout_marginEnd="@dimen/base_padding_margine"
         app:layout_constraintBottom_toTopOf="@+id/button_guidline"
-        app:layout_constraintEnd_toStartOf="@+id/track_play"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/track_play"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
         app:srcCompat="@drawable/ic_skip_previous_black_48px" />
 
     <ProgressBar
@@ -120,11 +138,31 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/base_padding_margine"
         android:layout_marginEnd="@dimen/base_padding_margine"
         android:layout_marginStart="@dimen/base_padding_margine"
-        app:layout_constraintBottom_toTopOf="@+id/track_play"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toStartOf="@+id/middle_guidline"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6537468" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.195" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3045388" />
 
 </android.support.constraint.ConstraintLayout>
