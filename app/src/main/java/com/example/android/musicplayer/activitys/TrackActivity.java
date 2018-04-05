@@ -1,6 +1,7 @@
 package com.example.android.musicplayer.activitys;
 
 import android.content.Intent;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -174,5 +175,23 @@ public class TrackActivity extends AppCompatActivity {
                 startActivity(intentOutHome);
             }
         });
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("play_state", HomeActivity.playVisibility);
+        outState.putInt("pause_state", HomeActivity.pauseVisibility);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if (savedInstanceState.containsKey("play_state") && savedInstanceState.containsKey("pause_state")){
+            HomeActivity.playVisibility = savedInstanceState.getInt("play_state");
+            playButton.setVisibility(HomeActivity.playVisibility);
+            HomeActivity.pauseVisibility = savedInstanceState.getInt("pause_state");
+            pauseButton.setVisibility(HomeActivity.pauseVisibility);
+        }
     }
 }
