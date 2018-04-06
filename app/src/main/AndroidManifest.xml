@@ -9,15 +9,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activitys.HomeActivity">
+        <activity
+            android:name=".activitys.HomeActivity"
+            android:label="@string/home_titles_text">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activitys.AlbumActivity" />
-        <activity android:name=".activitys.TrackActivity"></activity>
+        <activity
+            android:name=".activitys.AlbumActivity"
+            android:label="@string/album_titles_text"
+            android:parentActivityName="com.example.android.musicplayer.activitys.HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.musicplayer.activitys.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".activitys.TrackActivity"
+            android:label="@string/track_titles_text"
+            android:parentActivityName="com.example.android.musicplayer.activitys.HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.musicplayer.activitys.HomeActivity" />
+        </activity>
     </application>
 
 </manifest>

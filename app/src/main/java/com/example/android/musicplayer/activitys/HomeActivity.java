@@ -64,11 +64,28 @@ public class HomeActivity extends AppCompatActivity {
         final ListView primariListView = findViewById(R.id.primary_list);
         primariListView.setAdapter(adapter);
 
-        try {
-            savedInstanceState.containsKey(null);
+        mTrackTitle = findViewById(R.id.home_track_title);
+        mAlbumTitle = findViewById(R.id.home_album_title);
+
+        //Sets the footer element if the intent is from the TrackActivity
+        try{
+            if (!getIntent().getExtras().containsKey(null)) {
+                isTrackSelected = true;
+                mTrackTitle.setText(mTrackTitleText);
+                mAlbumTitle.setText(mAlbumTitleText);
+                mHomePlay.setVisibility(playVisibility);
+                mHomePause.setVisibility(pauseVisibility);
+            }
         } catch (NullPointerException e){
-            playVisibility = View.VISIBLE;
-            pauseVisibility = View.GONE;
+            try{
+                if (savedInstanceState.containsKey(null)){
+                    playVisibility = View.VISIBLE;
+                    pauseVisibility = View.GONE;
+                }
+            } catch (NullPointerException k){
+                playVisibility = View.VISIBLE;
+                pauseVisibility = View.GONE;
+            }
         }
 
         handleFooterElementsAndClickEvents();
@@ -142,18 +159,6 @@ public class HomeActivity extends AppCompatActivity {
      * In this method the <b>mHomeArrowUpp</b> View onClickListener handles the Intenting of the TrackActivity bay adding the nececery data fot the trough the Intent's putExtra method.<br>
      * The <b>mHomePlay</b> and <b>mHomePause</b> Views onClickListener handles the behavior of the Play / Pause buttons located int the footer bar.<br>*/
     public void handleFooterElementsAndClickEvents(){
-        mTrackTitle = findViewById(R.id.home_track_title);
-        mAlbumTitle = findViewById(R.id.home_album_title);
-
-        try{
-            if (!getIntent().getExtras().containsKey(null)){
-                isTrackSelected = true;
-                mTrackTitle.setText(mTrackTitleText);
-                mAlbumTitle.setText(mAlbumTitleText);
-                mHomePlay.setVisibility(playVisibility);
-                mHomePause.setVisibility(pauseVisibility);
-            }
-        } catch (NullPointerException e){}
 
         ImageView mHomeArrowUpp;
         mHomeArrowUpp = findViewById(R.id.home_arrow_upp);
