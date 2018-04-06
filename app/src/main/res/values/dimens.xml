@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="base_padding_margine">4dp</dimen>
+    <dimen name="large_padding_margin">15dp</dimen>
     <dimen name="title_bar_text_size">15sp</dimen>
     <dimen name="home_track_title_size">10sp</dimen>
     <dimen name="home_text_margins">8dp</dimen>

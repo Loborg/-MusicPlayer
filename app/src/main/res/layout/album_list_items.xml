@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="@color/common_text_color"
-        android:padding="@dimen/title_bar_text_size"
+        android:padding="@dimen/large_padding_margin"
         android:textStyle="bold"
         android:textSize="@dimen/title_bar_text_size"
         tools:text="Naphoz Holddal" />
