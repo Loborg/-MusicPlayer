@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.musicplayer.Arrays;
+import com.example.android.musicplayer.Key;
 import com.example.android.musicplayer.R;
 import com.example.android.musicplayer.adapters.*;
 
@@ -24,20 +25,8 @@ import com.example.android.musicplayer.adapters.*;
  * <li>	There is no Album button on the TrackActivity because the given time, I can’t finish the proper behaviour of the intended button.<br>
  * The AlbumActivity is still reachable from the HomeActivity by pressing the album’s title.</li></p> */
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener{
 
-    public static final String INSTANCE_SAVE_TRACK_SELECTED_KEY = "kTS";
-    public static final String INSTANCE_SAVE_ALBUM_TITLE_KEY = "kISAT";
-    public static final String INSTANCE_SAVE_TRACK_TITLE_KEY = "kISTT";
-    public static final String INSTANCE_SAVE_PLAY_VISIBILITY_KEY = "kISPlV";
-    public static final String INSTANCE_SAVE_PAUSE_VISIBILITY_KEY = "kISPaV";
-    public static final String INTENT_COVER_IDENT_KEY = "kIC";
-    public static final String INTENT_TRACK_TITLE_KEY = "kITT";
-    public static final String INTENT_TRACK_ARTIST_KEY = "kITA";
-    public static final String INTENT_PLAY_VISIBILITY_KEY = "kIPLV";
-    public static final String INTENT_PAUSE_VISIBILITY_KEY = "kIPAV";
-    public static final String INTETN_ALBUM_TITLE_KEY = "intetn_album_title_key";
-    public static final String CURRENT_ALBUM_KEY = "kCA";
     public static TextView mTrackTitle;
     public static TextView mAlbumTitle;
     public static ImageView mHomePlay;
@@ -98,11 +87,11 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putBoolean(INSTANCE_SAVE_TRACK_SELECTED_KEY, isTrackSelected);
-        outState.putString(INSTANCE_SAVE_ALBUM_TITLE_KEY, mAlbumTitle.getText().toString());
-        outState.putString(INSTANCE_SAVE_TRACK_TITLE_KEY, mTrackTitle.getText().toString());
-        outState.putInt(INSTANCE_SAVE_PLAY_VISIBILITY_KEY, playVisibility);
-        outState.putInt(INSTANCE_SAVE_PAUSE_VISIBILITY_KEY, pauseVisibility);
+        outState.putBoolean(Key.INSTANCE_SAVE_TRACK_SELECTED_KEY, isTrackSelected);
+        outState.putString(Key.INSTANCE_SAVE_ALBUM_TITLE_KEY, mAlbumTitle.getText().toString());
+        outState.putString(Key.INSTANCE_SAVE_TRACK_TITLE_KEY, mTrackTitle.getText().toString());
+        outState.putInt(Key.INSTANCE_SAVE_PLAY_VISIBILITY_KEY, playVisibility);
+        outState.putInt(Key.INSTANCE_SAVE_PAUSE_VISIBILITY_KEY, pauseVisibility);
     }
 
     @Override
@@ -110,18 +99,18 @@ public class HomeActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
 
         if (!savedInstanceState.containsKey(null)){
-            if (savedInstanceState.containsKey(INSTANCE_SAVE_TRACK_SELECTED_KEY)) {
-                isTrackSelected = savedInstanceState.getBoolean(INSTANCE_SAVE_TRACK_SELECTED_KEY);
+            if (savedInstanceState.containsKey(Key.INSTANCE_SAVE_TRACK_SELECTED_KEY)) {
+                isTrackSelected = savedInstanceState.getBoolean(Key.INSTANCE_SAVE_TRACK_SELECTED_KEY);
             }
-            if (savedInstanceState.containsKey(INSTANCE_SAVE_ALBUM_TITLE_KEY)) {
-                mAlbumTitle.setText(savedInstanceState.getString(INSTANCE_SAVE_ALBUM_TITLE_KEY));
+            if (savedInstanceState.containsKey(Key.INSTANCE_SAVE_ALBUM_TITLE_KEY)) {
+                mAlbumTitle.setText(savedInstanceState.getString(Key.INSTANCE_SAVE_ALBUM_TITLE_KEY));
             }
-            if (savedInstanceState.containsKey(INSTANCE_SAVE_TRACK_TITLE_KEY)) {
-                mTrackTitle.setText(savedInstanceState.getString(INSTANCE_SAVE_TRACK_TITLE_KEY));
+            if (savedInstanceState.containsKey(Key.INSTANCE_SAVE_TRACK_TITLE_KEY)) {
+                mTrackTitle.setText(savedInstanceState.getString(Key.INSTANCE_SAVE_TRACK_TITLE_KEY));
             }
-            if (savedInstanceState.containsKey(INSTANCE_SAVE_PAUSE_VISIBILITY_KEY) && savedInstanceState.containsKey(INSTANCE_SAVE_PLAY_VISIBILITY_KEY)){
-                mHomePlay.setVisibility(savedInstanceState.getInt(INSTANCE_SAVE_PLAY_VISIBILITY_KEY));
-                mHomePause.setVisibility(savedInstanceState.getInt(INSTANCE_SAVE_PAUSE_VISIBILITY_KEY));
+            if (savedInstanceState.containsKey(Key.INSTANCE_SAVE_PAUSE_VISIBILITY_KEY) && savedInstanceState.containsKey(Key.INSTANCE_SAVE_PLAY_VISIBILITY_KEY)){
+                mHomePlay.setVisibility(savedInstanceState.getInt(Key.INSTANCE_SAVE_PLAY_VISIBILITY_KEY));
+                mHomePause.setVisibility(savedInstanceState.getInt(Key.INSTANCE_SAVE_PAUSE_VISIBILITY_KEY));
             }
         }
     }
@@ -155,35 +144,23 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * In this method the <b>mHomeArrowUpp</b> View onClickListener handles the Intenting of the TrackActivity bay adding the nececery data fot the trough the Intent's putExtra method.<br>
-     * The <b>mHomePlay</b> and <b>mHomePause</b> Views onClickListener handles the behavior of the Play / Pause buttons located int the footer bar.<br>*/
-    public void handleFooterElementsAndClickEvents(){
-
-        ImageView mHomeArrowUpp;
-        mHomeArrowUpp = findViewById(R.id.home_arrow_upp);
-        mHomeArrowUpp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.home_arrow_upp:
                 if (isTrackSelected){
                     Intent intent = new Intent(HomeActivity.this, TrackActivity.class);
-                    intent.putExtra(INTENT_COVER_IDENT_KEY, mAlbumCoverIdentifier);
-                    intent.putExtra(INTENT_TRACK_TITLE_KEY, mTrackTitleText);
-                    intent.putExtra(INTENT_TRACK_ARTIST_KEY, mTrackArtistText);
-                    intent.putExtra(INTETN_ALBUM_TITLE_KEY, mAlbumTitleText);
-                    intent.putExtra(INTENT_PLAY_VISIBILITY_KEY, playVisibility);
-                    intent.putExtra(INTENT_PAUSE_VISIBILITY_KEY, pauseVisibility);
-                    intent.putExtra(CURRENT_ALBUM_KEY, mAlbumPosition);
+                    intent.putExtra(Key.INTENT_COVER_IDENT_KEY, mAlbumCoverIdentifier);
+                    intent.putExtra(Key.INTENT_TRACK_TITLE_KEY, mTrackTitleText);
+                    intent.putExtra(Key.INTENT_TRACK_ARTIST_KEY, mTrackArtistText);
+                    intent.putExtra(Key.INTETN_ALBUM_TITLE_KEY, mAlbumTitleText);
+                    intent.putExtra(Key.INTENT_PLAY_VISIBILITY_KEY, playVisibility);
+                    intent.putExtra(Key.INTENT_PAUSE_VISIBILITY_KEY, pauseVisibility);
+                    intent.putExtra(Key.CURRENT_ALBUM_KEY, mAlbumPosition);
                     startActivity(intent);
                 }
-            }
-        });
-
-        mHomePlay = findViewById(R.id.home_play);
-        mHomePlay.setVisibility(playVisibility);
-        mHomePlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                break;
+            case R.id.home_play:
                 if (isTrackSelected){
                     playVisibility = View.GONE;
                     mHomePlay.setVisibility(playVisibility);
@@ -192,19 +169,31 @@ public class HomeActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(HomeActivity.this, getBaseContext().getResources().getString(R.string.no_track_selected_toast), Toast.LENGTH_SHORT).show();
                 }
-            }
-        });
-
-        mHomePause = findViewById(R.id.home_pause);
-        mHomePause.setVisibility(pauseVisibility);
-        mHomePause.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                break;
+            case R.id.home_pause:
                 playVisibility = View.VISIBLE;
                 mHomePlay.setVisibility(playVisibility);
                 pauseVisibility = View.GONE;
                 mHomePause.setVisibility(pauseVisibility);
-            }
-        });
+                break;
+        }
+    }
+
+    /**
+     * In this method the <b>mHomeArrowUpp</b> View onClickListener handles the Intenting of the TrackActivity bay adding the nececery data fot the trough the Intent's putExtra method.<br>
+     * The <b>mHomePlay</b> and <b>mHomePause</b> Views onClickListener handles the behavior of the Play / Pause buttons located int the footer bar.<br>*/
+    public void handleFooterElementsAndClickEvents(){
+
+        ImageView mHomeArrowUpp;
+        mHomeArrowUpp = findViewById(R.id.home_arrow_upp);
+        mHomeArrowUpp.setOnClickListener(this);
+
+        mHomePlay = findViewById(R.id.home_play);
+        mHomePlay.setVisibility(playVisibility);
+        mHomePlay.setOnClickListener(this);
+
+        mHomePause = findViewById(R.id.home_pause);
+        mHomePause.setVisibility(pauseVisibility);
+        mHomePause.setOnClickListener(this);
     }
 }

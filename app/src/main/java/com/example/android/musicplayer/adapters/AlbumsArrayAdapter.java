@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.android.musicplayer.Key;
 import com.example.android.musicplayer.activitys.AlbumActivity;
 import com.example.android.musicplayer.activitys.HomeActivity;
 import com.example.android.musicplayer.models.Album;
@@ -46,7 +47,7 @@ public class AlbumsArrayAdapter extends ArrayAdapter<Album> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), AlbumActivity.class);
-                intent.putExtra(AlbumActivity.CURRENT_ALBUM, position);
+                intent.putExtra(Key.CURRENT_ALBUM, position);
                 getContext().startActivity(intent);
             }
         });

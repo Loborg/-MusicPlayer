@@ -11,19 +11,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.musicplayer.Arrays;
+import com.example.android.musicplayer.Key;
 import com.example.android.musicplayer.R;
 import com.example.android.musicplayer.adapters.TracksArrayAdapter;
 import com.example.android.musicplayer.models.Track;
 
 import static com.example.android.musicplayer.activitys.HomeActivity.*;
 
-public class AlbumActivity extends AppCompatActivity {
+public class AlbumActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public static final String INTENT_TRACK_TITLE = "track_title";
-    public static final String INTENT_TRACK_ARTIST = "track_artist";
-    public static final String INTENT_TRACK_COVER = "track_cover";
-    public static final String CURRENT_ALBUM = "current_track_key";
-    public static final String INTETN_ALBUM_TITLE = "intetn_album_title";
     public static TextView mTrackTitle;
     public static TextView mAlbumTitle;
     private ImageView mAlbumArrowUpp;
@@ -43,10 +39,10 @@ public class AlbumActivity extends AppCompatActivity {
 
         Arrays arrays = new Arrays(this);
 
-        if (intentIn.getExtras().containsKey(CURRENT_ALBUM)){
-            adapter = new TracksArrayAdapter(this, arrays.albumList.get(intentIn.getIntExtra(CURRENT_ALBUM, 0)).getTrackList());
-        } else if (intentIn.getExtras().containsKey(HomeActivity.CURRENT_ALBUM_KEY)){
-            adapter = new TracksArrayAdapter(this, arrays.albumList.get(intentIn.getIntExtra(CURRENT_ALBUM_KEY, 0)).getTrackList());
+        if (intentIn.getExtras().containsKey(Key.CURRENT_ALBUM)){
+            adapter = new TracksArrayAdapter(this, arrays.albumList.get(intentIn.getIntExtra(Key.CURRENT_ALBUM, 0)).getTrackList());
+        } else if (intentIn.getExtras().containsKey(Key.CURRENT_ALBUM_KEY)){
+            adapter = new TracksArrayAdapter(this, arrays.albumList.get(intentIn.getIntExtra(Key.CURRENT_ALBUM_KEY, 0)).getTrackList());
         }
 
         final ListView primaryListView = findViewById(R.id.primary_list);
@@ -66,13 +62,47 @@ public class AlbumActivity extends AppCompatActivity {
                 albumTitle.setText(selectedTrack.getAlbumTitle());
 
                 Intent intent = new Intent(AlbumActivity.this, TrackActivity.class);
-                intent.putExtra(INTENT_TRACK_TITLE, trackTitle.getText()); //Integer Identifier
-                intent.putExtra(INTENT_TRACK_ARTIST, selectedTrack.getAlbumArtist());
-                intent.putExtra(INTENT_TRACK_COVER, selectedTrack.getAlbumCover());
-                intent.putExtra(INTETN_ALBUM_TITLE, albumTitle.getText()); //Integer Identifier
+                intent.putExtra(Key.INTENT_TRACK_TITLE, trackTitle.getText()); //Integer Identifier
+                intent.putExtra(Key.INTENT_TRACK_ARTIST, selectedTrack.getAlbumArtist());
+                intent.putExtra(Key.INTENT_TRACK_COVER, selectedTrack.getAlbumCover());
+                intent.putExtra(Key.INTETN_ALBUM_TITLE, albumTitle.getText()); //Integer Identifier
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.home_arrow_upp:
+                if (HomeActivity.isTrackSelected){
+                    Intent intent = new Intent(AlbumActivity.this, TrackActivity.class);
+                    //Only using class name to forfeit code readability.
+                    intent.putExtra(Key.INTENT_COVER_IDENT_KEY, HomeActivity.mAlbumCoverIdentifier);
+                    intent.putExtra(Key.INTENT_TRACK_TITLE_KEY, HomeActivity.mTrackTitleText);
+                    intent.putExtra(Key.INTENT_TRACK_ARTIST_KEY, HomeActivity.mTrackArtistText);
+                    intent.putExtra(Key.INTENT_PLAY_VISIBILITY_KEY, HomeActivity.playVisibility);
+                    intent.putExtra(Key.INTENT_PAUSE_VISIBILITY_KEY, HomeActivity.pauseVisibility);
+                    startActivity(intent);
+                }
+                break;
+            case R.id.home_play:
+                if (HomeActivity.isTrackSelected){
+                    HomeActivity.playVisibility = View.GONE;
+                    mAlbumPlay.setVisibility(playVisibility);
+                    HomeActivity.pauseVisibility = View.VISIBLE;
+                    mAlbumPause.setVisibility(pauseVisibility);
+                } else {
+                    Toast.makeText(AlbumActivity.this, getBaseContext().getResources().getString(R.string.no_track_selected_toast), Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.home_pause:
+                HomeActivity.playVisibility = View.VISIBLE;
+                mAlbumPlay.setVisibility(playVisibility);
+                HomeActivity.pauseVisibility = View.GONE;
+                mAlbumPause.setVisibility(pauseVisibility);
+                break;
+        }
     }
 
     /**
@@ -87,50 +117,15 @@ public class AlbumActivity extends AppCompatActivity {
         mAlbumTitle.setText(HomeActivity.mAlbumTitleText);
 
         mAlbumArrowUpp = findViewById(R.id.home_arrow_upp);
-        mAlbumArrowUpp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (HomeActivity.isTrackSelected){
-                    Intent intent = new Intent(AlbumActivity.this, TrackActivity.class);
-                    //Only using class name to forfeit code readability.
-                    intent.putExtra(INTENT_COVER_IDENT_KEY, HomeActivity.mAlbumCoverIdentifier);
-                    intent.putExtra(INTENT_TRACK_TITLE_KEY, HomeActivity.mTrackTitleText);
-                    intent.putExtra(INTENT_TRACK_ARTIST_KEY, HomeActivity.mTrackArtistText);
-                    intent.putExtra(INTENT_PLAY_VISIBILITY_KEY, HomeActivity.playVisibility);
-                    intent.putExtra(INTENT_PAUSE_VISIBILITY_KEY, HomeActivity.pauseVisibility);
-
-                    startActivity(intent);
-                }
-            }
-        });
+        mAlbumArrowUpp.setOnClickListener(this);
 
         mAlbumPlay = findViewById(R.id.home_play);
         mAlbumPlay.setVisibility(HomeActivity.playVisibility);
-        mAlbumPlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (HomeActivity.isTrackSelected){
-                    HomeActivity.playVisibility = View.GONE;
-                    mAlbumPlay.setVisibility(playVisibility);
-                    HomeActivity.pauseVisibility = View.VISIBLE;
-                    mAlbumPause.setVisibility(pauseVisibility);
-                } else {
-                    Toast.makeText(AlbumActivity.this, getBaseContext().getResources().getString(R.string.no_track_selected_toast), Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+        mAlbumPlay.setOnClickListener(this);
 
         mAlbumPause = findViewById(R.id.home_pause);
         mAlbumPause.setVisibility(HomeActivity.pauseVisibility);
-        mAlbumPause.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                HomeActivity.playVisibility = View.VISIBLE;
-                mAlbumPlay.setVisibility(playVisibility);
-                HomeActivity.pauseVisibility = View.GONE;
-                mAlbumPause.setVisibility(pauseVisibility);
-            }
-        });
+        mAlbumPause.setOnClickListener(this);
     }
 
     @Override
