@@ -64,7 +64,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/middle_guidline"
         app:layout_constraintTop_toBottomOf="@+id/top_guidline"
-        tools:srcCompat="@drawable/naphoz_holddal" />
+        tools:srcCompat="@drawable/naphoz_holddal"
+        android:contentDescription="@string/track_screen_album_cover_content_d" />
 
     <TextView
         android:id="@+id/track_track_title"
@@ -101,7 +102,8 @@
         app:layout_constraintEnd_toStartOf="@+id/middle_guidline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:srcCompat="@drawable/ic_play_circle_outline_black_48px" />
+        app:srcCompat="@drawable/ic_play_circle_outline_black_48px"
+        android:contentDescription="@string/track_screen_play_content_d" />
 
     <ImageView
         android:id="@+id/track_pause"
@@ -111,7 +113,8 @@
         app:layout_constraintEnd_toStartOf="@+id/middle_guidline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:srcCompat="@drawable/ic_pause_circle_outline_black_48px" />
+        app:srcCompat="@drawable/ic_pause_circle_outline_black_48px"
+        android:contentDescription="@string/track_screen_pause_content_d" />
 
     <ImageView
         android:id="@+id/track_next"
@@ -121,7 +124,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:srcCompat="@drawable/ic_skip_next_black_48px" />
+        app:srcCompat="@drawable/ic_skip_next_black_48px"
+        android:contentDescription="@string/track_screen_next_content_d" />
 
     <ImageView
         android:id="@+id/track_back"
@@ -131,7 +135,8 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:srcCompat="@drawable/ic_skip_previous_black_48px" />
+        app:srcCompat="@drawable/ic_skip_previous_black_48px"
+        android:contentDescription="@string/track_screen_back_content_d" />
 
     <ProgressBar
         android:id="@+id/track_progrssbar"

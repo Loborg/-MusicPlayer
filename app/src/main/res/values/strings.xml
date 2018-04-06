@@ -92,5 +92,13 @@
         <string name="trackE_15">Tegyetek El Befőttet</string>
         <string name="trackE_16">Dal Elalváshoz</string>
         <string name="trackE_17">Jelvény Nélkül</string>
+    <string name="upp_arrow_content_d">upp_arrow</string>
+    <string name="home_screen_play_content_d">home screen play</string>
+    <string name="home_screen_pause_content_d">home screen pause</string>
+    <string name="track_screen_album_cover_content_d">track screen album cover</string>
+    <string name="track_screen_play_content_d">track screen play</string>
+    <string name="track_screen_pause_content_d">track screen pause</string>
+    <string name="track_screen_next_content_d">track screen next</string>
+    <string name="track_screen_back_content_d">track screen back</string>
 
 </resources>
